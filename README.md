@@ -1,6 +1,36 @@
 > [!IMPORTANT]
 > This is a basic breakdown code which used in the [YouTube video](https://www.youtube.com/watch?v=WbzNRTTrX0g). This code does not writed by me! 
 
+# **Diagram that shows how it works**
+
+```mermaid
+graph TD;
+    subgraph Initialization
+        A[Initialize Maze] -->|Read Maze from File| B[Create Maze Object];
+        B -->|Set Start and Goal| C[Set Start and Goal Points];
+    end
+
+    subgraph Exploration
+        C -->|Print Initial Maze| D[Print Maze];
+        D -->|Solve Maze| E[Explore Maze];
+        E -->|Check Frontier| F[Frontier Empty?];
+        F -- No --> G[Choose Node from Frontier];
+        F -- Yes --> H[No Solution Found];
+        G --> I[Check Goal Reached];
+        I -- No --> J[Mark Node as Explored];
+        J --> K[Add Neighbors to Frontier];
+        K --> E;  %% Corrected connection to Exploration stage
+        I -- Yes --> L[Backtrack to Find Solution];
+    end
+
+    subgraph Visualization
+        L -->|Print Solution| M[Print Solution];
+        M -->|Output Image| N[Generate Image];
+        N -->|Display Image| O[Display Result];
+    end
+```
+
+# **Review**
 ## **Code Intro**
 
 - **Code :**
@@ -463,32 +493,3 @@ This portion of the code is typically used to run the maze-solving program from 
     ```
 
   - This assumes that the maze file is named "maze.txt" (replace with the actual file name).
-
-## **Diagram that shows how it works**
-
-```mermaid
-graph TD;
-    subgraph Initialization
-        A[Initialize Maze] -->|Read Maze from File| B[Create Maze Object];
-        B -->|Set Start and Goal| C[Set Start and Goal Points];
-    end
-
-    subgraph Exploration
-        C -->|Print Initial Maze| D[Print Maze];
-        D -->|Solve Maze| E[Explore Maze];
-        E -->|Check Frontier| F[Frontier Empty?];
-        F -- No --> G[Choose Node from Frontier];
-        F -- Yes --> H[No Solution Found];
-        G --> I[Check Goal Reached];
-        I -- No --> J[Mark Node as Explored];
-        J --> K[Add Neighbors to Frontier];
-        K --> E;  %% Corrected connection to Exploration stage
-        I -- Yes --> L[Backtrack to Find Solution];
-    end
-
-    subgraph Visualization
-        L -->|Print Solution| M[Print Solution];
-        M -->|Output Image| N[Generate Image];
-        N -->|Display Image| O[Display Result];
-    end
-```
