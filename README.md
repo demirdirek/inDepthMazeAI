@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> This is a basic breakdown code which used in the video. This code does not writed by me!
+> This is a basic breakdown code which used in the [YouTube video](https://www.youtube.com/watch?v=WbzNRTTrX0g). This code does not writed by me! 
 
 ## **Code Intro**
 
